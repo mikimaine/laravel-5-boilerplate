@@ -20,8 +20,8 @@ trait TruncateTable
             case 'mysql':
                 return DB::table($table)->truncate();
 
-            case 'postgres':
-                return  DB::statement('TRUNCATE TABLE '.$table.' CASCADE');
+            case 'pgsq':
+                return  DB::statement('TRUNCATE TABLE '.$table.' RESTART IDENTITY CASCADE');
 
             case 'sqlite':
                 return DB::statement('DELETE FROM '.$table);
